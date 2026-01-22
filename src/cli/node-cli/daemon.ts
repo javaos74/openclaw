@@ -47,7 +47,7 @@ type NodeDaemonStatusOptions = {
 };
 
 function renderNodeServiceStartHints(): string[] {
-  const base = [formatCliCommand("clawdbot node install"), formatCliCommand("clawdbot node start")];
+  const base = [formatCliCommand("clawdbot node install"), formatCliCommand("clawdbot node run")];
   switch (process.platform) {
     case "darwin":
       return [

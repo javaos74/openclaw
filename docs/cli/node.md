@@ -59,7 +59,6 @@ Manage the service:
 
 ```bash
 clawdbot node status
-clawdbot node run
 clawdbot node stop
 clawdbot node restart
 clawdbot node uninstall

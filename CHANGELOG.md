@@ -2,11 +2,12 @@
 
 Docs: https://docs.clawd.bot
 
-## 2026.1.22
+## 2026.1.22 (Unreleased)
 
 ### Fixes
 - BlueBubbles: stop typing indicator on idle/no-reply. (#1439) Thanks @Nicell.
 - Auto-reply: only report a model switch when session state is available. (#1465) Thanks @robbyczgw-cla.
+- Node: launch node host service with `node run` (not `node start`) and align node host hints/docs. (#1461) Thanks @ameno-.
 
 ## 2026.1.21-2
 

@@ -57,8 +57,10 @@ clawdbot node run --host <gateway-host> --port 18789 --display-name "Build Node"
 
 ```bash
 clawdbot node install --host <gateway-host> --port 18789 --display-name "Build Node"
-clawdbot node start
+clawdbot node status
 ```
+
+Install starts the service. Use `clawdbot node restart` if you need to re-launch it.
 
 ### Pair + name
 
