@@ -1,0 +1,32 @@
+{
+  "name": "@openclaw/kakaotalk",
+  "version": "2026.2.6-3",
+  "description": "OpenClaw KakaoTalk channel plugin",
+  "type": "module",
+  "devDependencies": {
+    "openclaw": "workspace:*"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ],
+    "channel": {
+      "id": "kakaotalk",
+      "label": "KakaoTalk",
+      "selectionLabel": "KakaoTalk (macOS Accessibility)",
+      "detailLabel": "KakaoTalk",
+      "blurb": "KakaoTalk via macOS Accessibility API bridge.",
+      "aliases": [
+        "kt",
+        "kakao"
+      ],
+      "systemImage": "message.fill",
+      "order": 80
+    },
+    "install": {
+      "npmSpec": "@openclaw/kakaotalk",
+      "localPath": "extensions/kakaotalk",
+      "defaultChoice": "npm"
+    }
+  }
+}
