@@ -79,7 +79,7 @@ export async function monitorKakaoTalkProvider(opts: KakaoTalkMonitorOptions): P
       cfg,
       channel: "kakaotalk",
       accountId: account.accountId,
-      peer: { kind: "dm", id: chatName },
+      peer: { kind: "direct", id: chatName },
     });
 
     const envelopeOptions = core.channel.reply.resolveEnvelopeFormatOptions(cfg);

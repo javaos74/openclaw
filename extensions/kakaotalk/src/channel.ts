@@ -1,4 +1,9 @@
-import type { ChannelPlugin, OpenClawConfig } from "openclaw/plugin-sdk";
+import type {
+  ChannelPlugin,
+  ChannelOutboundContext,
+  ChannelStatusIssue,
+  OpenClawConfig,
+} from "openclaw/plugin-sdk";
 import {
   buildChannelConfigSchema,
   DEFAULT_ACCOUNT_ID,
@@ -28,6 +33,7 @@ const meta = {
   selectionLabel: "KakaoTalk (macOS Accessibility)",
   detailLabel: "KakaoTalk",
   blurb: "KakaoTalk via macOS Accessibility API bridge.",
+  docsPath: "channels/kakaotalk",
   aliases: ["kt", "kakao"],
   systemImage: "message.fill",
   order: 80,
@@ -165,7 +171,7 @@ export const kakaotalkPlugin: ChannelPlugin<ResolvedKakaoTalkAccount, KakaoTalkP
         };
       }
     },
-    sendText: async ({ cfg, to, text, accountId }) => {
+    sendText: async ({ cfg, to, text, accountId }: ChannelOutboundContext) => {
       const account = resolveKakaoTalkAccount({ cfg, accountId });
       const { createKakaoTalkRpcClient } = await import("./client.js");
       const client = await createKakaoTalkRpcClient({
@@ -173,7 +179,7 @@ export const kakaotalkPlugin: ChannelPlugin<ResolvedKakaoTalkAccount, KakaoTalkP
       });
       try {
         const result = await sendMessageKakaoTalk(to, text, { client });
-        return { channel: "kakaotalk", ...result };
+        return { channel: "kakaotalk" as const, messageId: "", ...result };
       } finally {
         await client.stop();
       }
@@ -189,17 +195,12 @@ export const kakaotalkPlugin: ChannelPlugin<ResolvedKakaoTalkAccount, KakaoTalkP
     },
     collectStatusIssues: (accounts) =>
       accounts.flatMap((account) => {
-        const issues: Array<{
-          channel: string;
-          accountId: string;
-          kind: string;
-          message: string;
-        }> = [];
+        const issues: ChannelStatusIssue[] = [];
         if (!isMacOS) {
           issues.push({
             channel: "kakaotalk",
             accountId: account.accountId ?? DEFAULT_ACCOUNT_ID,
-            kind: "platform",
+            kind: "runtime",
             message: "KakaoTalk requires macOS (Accessibility API)",
           });
         }
