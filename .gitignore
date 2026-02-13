@@ -27,6 +27,7 @@ apps/android/.cxx/
 *.bun-build
 apps/macos/.build/
 apps/shared/MoltbotKit/.build/
+kakaotalk-bridge/.build/
 **/ModuleCache/
 bin/
 bin/clawdbot-mac

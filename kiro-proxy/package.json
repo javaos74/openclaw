@@ -1,0 +1,8 @@
+{
+  "name": "kiro-openai-proxy",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@agentclientprotocol/sdk": "0.14.1"
+  }
+}

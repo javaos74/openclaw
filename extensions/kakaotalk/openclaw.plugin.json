@@ -1,0 +1,9 @@
+{
+  "id": "kakaotalk",
+  "channels": ["kakaotalk"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

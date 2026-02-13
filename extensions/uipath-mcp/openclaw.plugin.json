@@ -1,0 +1,14 @@
+{
+  "id": "uipath-mcp",
+  "name": "UiPath MCP",
+  "description": "UiPath automation tools via MCP Streamable HTTP",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "endpoint": { "type": "string", "description": "UiPath MCP Server endpoint URL" },
+      "bearerToken": { "type": "string", "description": "Authorization Bearer token" }
+    },
+    "required": ["endpoint", "bearerToken"]
+  }
+}
